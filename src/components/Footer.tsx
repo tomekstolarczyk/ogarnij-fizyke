@@ -26,6 +26,14 @@ export default function Footer() {
           >
             Instagram
           </a>
+          <a
+            href={siteLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-accent"
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </footer>
