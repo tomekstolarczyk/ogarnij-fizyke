@@ -1,7 +1,10 @@
+// temporary theme preview
 export default function Home() {
   return (
-    <main>
-      <h1>Ogarnij Fizykę</h1>
+    <main className="p-6">
+      <h1 className="font-mono text-3xl text-accent">Ogarnij Fizykę</h1>
+      <p className="mt-2 text-muted">Darmowy kurs fizyki do matury.</p>
+      <p className="mt-2 font-mono">ω = Δφ / Δt</p>
     </main>
   );
 }

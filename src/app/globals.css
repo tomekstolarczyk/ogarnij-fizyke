@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a; /* page background */
+  --color-surface: #141414; /* cards, nodes */
+  --color-border: #262626;
+  --color-foreground: #ededed; /* main text */
+  --color-muted: #a1a1a1; /* secondary text */
+  --color-accent: #22c55e; /* green: links, buttons, highlights */
+}
+
+/* inline: font variables are set by next/font on <html> */
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
