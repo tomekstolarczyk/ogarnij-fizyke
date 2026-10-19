@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteLinks } from "@/data/site";
 
 const features = [
@@ -54,9 +55,12 @@ export default function Home() {
             >
               Oglądaj na YouTube
             </a>
-            <span className="w-full rounded-full border border-border px-6 py-3 font-mono text-sm text-muted sm:w-auto">
-              Mapa fizyki · wkrótce
-            </span>
+            <Link
+              href="/mapa"
+              className="w-full rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent/40 hover:text-foreground sm:w-auto"
+            >
+              Zobacz mapę fizyki →
+            </Link>
           </div>
         </div>
       </section>

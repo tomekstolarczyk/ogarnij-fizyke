@@ -13,7 +13,7 @@ export default function Header() {
 
         <nav className="flex items-center gap-4 text-sm">
           <Link
-            href="/#mapa"
+            href="/mapa"
             className="text-muted transition-colors hover:text-foreground"
           >
             Mapa
