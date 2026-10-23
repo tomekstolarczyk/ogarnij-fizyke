@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SideMenu from "@/components/SideMenu";
+import SiteMenu from "@/components/SiteMenu";
 import SocialIcon from "@/components/SocialIcon";
 import { siteLinks } from "@/data/site";
 
@@ -7,7 +7,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60">
       {/* Blurred background as a separate layer: backdrop-blur on the header
-          itself would trap the fixed side menu inside the header's 56px */}
+          itself would trap the menu's fixed full-page dimming inside the
+          header's 56px */}
       <div className="absolute inset-0 -z-10 bg-background/70 backdrop-blur-md" />
 
       {/* Three columns: the middle one is as wide as the logo and the side ones
@@ -15,7 +16,7 @@ export default function Header() {
           Full width (no max-w), so the menu and icons sit in the corners. */}
       <div className="grid h-14 w-full grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6">
         <div className="justify-self-start">
-          <SideMenu />
+          <SiteMenu />
         </div>
 
         {/* Logo with a blinking terminal cursor, author's name below */}
