@@ -1,20 +1,22 @@
 import Link from "next/link";
+import SideMenu from "@/components/SideMenu";
 import SocialIcon from "@/components/SocialIcon";
 import { siteLinks } from "@/data/site";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/60">
+      {/* Blurred background as a separate layer: backdrop-blur on the header
+          itself would trap the fixed side menu inside the header's 56px */}
+      <div className="absolute inset-0 -z-10 bg-background/70 backdrop-blur-md" />
+
       {/* Three columns: the middle one is as wide as the logo and the side ones
-          split the rest equally, so the logo stays exactly in the center */}
-      <div className="mx-auto grid h-14 w-full max-w-5xl grid-cols-[1fr_auto_1fr] items-center px-4">
-        {/* Temporary: replaced by the "> menu" button in the next step */}
-        <Link
-          href="/mapa"
-          className="justify-self-start text-sm text-muted transition-colors hover:text-foreground"
-        >
-          Mapa
-        </Link>
+          split the rest equally, so the logo stays exactly in the center.
+          Full width (no max-w), so the menu and icons sit in the corners. */}
+      <div className="grid h-14 w-full grid-cols-[1fr_auto_1fr] items-center px-4 sm:px-6">
+        <div className="justify-self-start">
+          <SideMenu />
+        </div>
 
         {/* Logo with a blinking terminal cursor, author's name below */}
         <Link href="/" className="flex flex-col items-center leading-tight">
