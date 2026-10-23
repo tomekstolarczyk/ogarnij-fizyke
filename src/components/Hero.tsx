@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroPhoto from "@/components/HeroPhoto";
 import { channelStats, siteLinks } from "@/data/site";
 
 const stats = [
@@ -10,8 +11,10 @@ const stats = [
 // Top of the landing page: headline with marker doodles, buttons, channel stats
 export default function Hero() {
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-16 gap-y-12 px-4 py-16 sm:px-6 sm:py-20">
-      {/* flex-[1_1_32rem]: grows and shrinks, prefers 32rem; the photo will sit next to it */}
+    // overflow-x-clip: tilted stickers near the edge can't cause sideways scrolling on phones
+    <section className="mx-auto flex w-full max-w-6xl flex-wrap items-center gap-x-16 gap-y-12 overflow-x-clip px-4 py-16 sm:px-6 sm:py-20">
+      {/* flex-[1_1_32rem]: grows and shrinks, prefers 32rem; the photo sits next to it
+          and drops below it when there is no room (phones) */}
       <div className="min-w-0 flex-[1_1_32rem]">
         <p className="mb-14 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1.5 font-mono text-[13px] text-foreground/80">
           <span className="size-2 animate-pulse rounded-full bg-accent" />
@@ -110,6 +113,8 @@ export default function Hero() {
           ))}
         </div>
       </div>
+
+      <HeroPhoto />
     </section>
   );
 }

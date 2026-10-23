@@ -9,6 +9,7 @@
   --color-muted: #9198a1; /* secondary text */
   --color-accent: #3fb950; /* green: links, buttons, highlights */
   --color-ink: #1c1917; /* map: outlines and text on the pastel islands */
+  --color-paper: #f5efe3; /* warm paper: polaroid frame */
 
   /* Marker colors from the YouTube thumbnails: stickers, icons, doodles */
   --color-marker-blue: #58a6ff;
