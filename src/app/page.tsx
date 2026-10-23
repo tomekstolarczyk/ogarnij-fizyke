@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { siteLinks } from "@/data/site";
+import Hero from "@/components/Hero";
 
 const features = [
   {
@@ -22,43 +21,7 @@ const features = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section>
-        <div className="mx-auto w-full max-w-5xl px-4 py-24 text-center sm:py-32">
-          <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 font-mono text-xs text-muted">
-            <span className="size-2 animate-pulse rounded-full bg-accent" />
-            Matura 2027 · 100% za darmo
-          </p>
-
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight sm:text-6xl">
-            Ogarnij <span className="text-accent">fizykę</span>
-            <br />
-            do matury.
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-xl text-base text-muted sm:text-lg">
-            Filmy, odręczne notatki i zadania z arkuszy CKE w jednym miejscu.
-            Bez płatnych kursów, bez chaosu.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href={siteLinks.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full rounded-full bg-accent px-6 py-3 font-medium text-background transition-opacity hover:opacity-90 sm:w-auto"
-            >
-              Oglądaj na YouTube
-            </a>
-            <Link
-              href="/mapa"
-              className="w-full rounded-full border border-border px-6 py-3 font-mono text-sm text-muted transition-colors hover:border-accent/40 hover:text-foreground sm:w-auto"
-            >
-              Zobacz mapę fizyki →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* What you get */}
       <section className="mx-auto grid w-full max-w-5xl gap-4 px-4 pb-24 sm:grid-cols-3">

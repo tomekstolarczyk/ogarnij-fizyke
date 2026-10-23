@@ -5,6 +5,12 @@ export const siteLinks = {
   github: "https://github.com/tomekstolarczyk/ogarnij-fizyke",
 };
 
+// Channel numbers shown on the landing page; update by hand from YouTube Studio
+export const channelStats = {
+  subscribers: "3,19 tys.",
+  videos: 41,
+};
+
 export type MenuItem = {
   label: string;
   description: string;
