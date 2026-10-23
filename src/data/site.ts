@@ -9,6 +9,7 @@ export const siteLinks = {
 export const channelStats = {
   subscribers: "3,19 tys.",
   videos: 41,
+  latestVideo: "Grawitacja 1: Prawo Powszechnego Ciążenia",
 };
 
 export type MenuItem = {
