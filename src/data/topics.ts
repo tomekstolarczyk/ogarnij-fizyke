@@ -78,7 +78,60 @@ export const topics: Topic[] = [
     group: "fundamentals",
     position: { x: 140, y: 260 },
     requires: [],
-    videos: [],
+    videos: [
+      {
+        title: "Kinematyka Teoria #1: Wprowadzenie - droga, układ odniesienia, punkt materialny",
+        youtubeId: "BgpKPEIgl1w",
+      },
+      {
+        title: "Kinematyka Teoria #2: Ruch Prostoliniowy Jednostajny i Jednostajnie Zmienny",
+        youtubeId: "s4meApymmtQ",
+      },
+      {
+        title: "Kinematyka Zadania #1 - Matura Fizyka 2020 Czerwiec CKE Zad 1. Hokeista [Ruch Prostoliniowy]",
+        youtubeId: "nmx9e6CnHWk",
+      },
+      {
+        title: "Kinematyka Zadania #2 - Matura Fizyka 2020 Lipiec CKE Zad 1. Samolot [Ruch Prostoliniowy]",
+        youtubeId: "RC1OYYi0ZlE",
+      },
+      {
+        title: "Kinematyka Zadania #3 - Matura Fizyka 2023 Maj CKE Zad 1. Pościg [Ruch Prostoliniowy]",
+        youtubeId: "RPp1po3lH2M",
+      },
+      {
+        title: "Kinematyka Teoria #3: Spadek Swobodny i Rzut Pionowy",
+        youtubeId: "kpsnak2w2CE",
+      },
+      {
+        title: "Kinematyka Zadania #4: 2025 -2026 Informator Maturalny CKE Zad. 2. Spadająca Kulka [Spadek Swobodny]",
+        youtubeId: "rC9cmGRD3D8",
+      },
+      {
+        title: "Kinematyka Teoria #4: Rzut Poziomy",
+        youtubeId: "_1CR7Oc8jpM",
+      },
+      {
+        title: "Kinematyka Zadania #5: Matura Fizyka 2021 Maj CKE Zad. 1. Dwie Kulki [Rzut Poziomy]",
+        youtubeId: "GUNk_yFQnpY",
+      },
+      {
+        title: "Kinematyka Zadania #6: Matura Fizyka 2021 Czerwiec CKE Zad. 1. Wieża Obserwacyjna [Rzut Poziomy]",
+        youtubeId: "kUNOSIuS_O8",
+      },
+      {
+        title: "Kinematyka Teoria #5: Ruch po Okręgu - Przyspieszenie Dośrodkowe i Prędkość Kątowa",
+        youtubeId: "kEPX0HERKqs",
+      },
+      {
+        title: "Kinematyka Zadania #7: Matura Próbna Fizyka 2022 Grudzień CKE Zad. 1. [Ruch Po Okręgu]",
+        youtubeId: "1jgJNuaSyac",
+      },
+      {
+        title: "CAŁA KINEMATYKA do MATURY 2026 w Mniej Niż 3 Godziny (teoria + zadania)",
+        youtubeId: "k3cL6KhzuwY",
+      },
+    ],
     notes: [],
     exercises: [],
   },
@@ -88,7 +141,48 @@ export const topics: Topic[] = [
     group: "fundamentals",
     position: { x: 340, y: 170 },
     requires: ["kinematyka"],
-    videos: [],
+    videos: [
+      {
+        title: "Dynamika Teoria #1: Siła i Zasady Dynamiki Newtona",
+        youtubeId: "ND5Vxk9FrPM",
+      },
+      {
+        title: "Dynamika Zadania #1: Matura Fizyka 2022 Maj CKE Zad. 2. [Siła i Zasady Dynamiki Newtona]",
+        youtubeId: "uRzwc-8qe28",
+      },
+      {
+        title: "Dynamika Teoria #2: Tarcie, Siła Oporu i Prędkość Graniczna, Siła Dośrodkowa",
+        youtubeId: "9JleTN8nrbU",
+      },
+      {
+        title: "Dynamika Zadania #2: Matura Próbna Fizyka 2021 Marzec CKE Zad. 2. [Siła i Zasady Dynamiki Newtona]",
+        youtubeId: "Jm1XXt3Nc9g",
+      },
+      {
+        title: "Dynamika Zadania #3: Matura Fizyka 2023 Maj CKE Zad. 3. [Siła i Zasady Dynamiki Newtona]",
+        youtubeId: "1C7oP2eAJfA",
+      },
+      {
+        title: "Dynamika Zadania #4: Matura Fizyka 2022 Czerwiec CKE Zad. 4. [Siła i Zasady Dynamiki Newtona]",
+        youtubeId: "wGpHZm9qLR8",
+      },
+      {
+        title: "Dynamika Zadania #5: Matura Fizyka 2024 Maj CKE Zad. 1. [Siła Oporu i Prędkość Graniczna]",
+        youtubeId: "VL0ktZrZCaM",
+      },
+      {
+        title: "Dynamika Teoria #3: Pęd i Zasada Zachowania Pędu",
+        youtubeId: "s9lmFhuYmtE",
+      },
+      {
+        title: "Dynamika Zadania #6: 2025-2026 Informator Maturalny CKE Zad. 1. [Pęd i Zasada Zachowania Pędu]",
+        youtubeId: "ffps5y-09qY",
+      },
+      {
+        title: "CAŁA DYNAMIKA do MATURY 2026 w Mniej Niż 4 Godziny (teoria + zadania)",
+        youtubeId: "3PPtAHlnIWI",
+      },
+    ],
     notes: [],
     exercises: [],
   },
@@ -98,7 +192,36 @@ export const topics: Topic[] = [
     group: "fundamentals",
     position: { x: 540, y: 80 },
     requires: ["dynamika"],
-    videos: [],
+    videos: [
+      {
+        title: "Praca Moc Energia Teoria #1.1: Zasada Zachowania Energii",
+        youtubeId: "EDf4JyjbC4I",
+      },
+      {
+        title: "Praca Moc Energia Teoria #1.2: Oddziaływania Fundamentalne",
+        youtubeId: "Q66lxOP066s",
+      },
+      {
+        title: "Praca Moc Energia Teoria #1.3: Siły Zachowawcze i Niezachowawcze",
+        youtubeId: "bGTPPcW4LyM",
+      },
+      {
+        title: "Praca Moc Energia Zadania #1 Matura Fizyka 2023 Maj CKE Zad. 3. [Zasada Zachowania Energii]",
+        youtubeId: "02SWAOP_8Lc",
+      },
+      {
+        title: "Praca Moc Energia Teoria #2: Zderzenia",
+        youtubeId: "3ijSipEYeCw",
+      },
+      {
+        title: "Praca Moc Energia Zadania #2: Matura 2023 Czerwiec CKE Zad. 2. [ZDERZENIA]",
+        youtubeId: "qmllRemBauk",
+      },
+      {
+        title: "CAŁA PRACA MOC ENERGIA do MATURY 2026 w Mniej Niż 4 Godziny (teoria + zadania)",
+        youtubeId: "SH3W51qnIFY",
+      },
+    ],
     notes: [],
     exercises: [],
   },
@@ -110,7 +233,36 @@ export const topics: Topic[] = [
     group: "complexMotion",
     position: { x: 980, y: 60 },
     requires: ["praca-moc-energia"],
-    videos: [],
+    videos: [
+      {
+        title: "BRYŁA SZTYWNA Teoria #1: Wstęp",
+        youtubeId: "BvBA_7G2T1s",
+      },
+      {
+        title: "Bryła Sztywna Teoria #2: Środek Masy i Ruch Postępowy.",
+        youtubeId: "BnpMOiugLsY",
+      },
+      {
+        title: "Bryła Sztywna Teoria #3.1: Ruch Obrotowy",
+        youtubeId: "vDOPXN2jWik",
+      },
+      {
+        title: "Bryła Sztywna Teoria #3.2: Moment Siły i Moment Bezwładności",
+        youtubeId: "GXY3eATOozk",
+      },
+      {
+        title: "Bryła Sztywna Teoria #4: Toczenie i Równowaga Bryły Sztywnej",
+        youtubeId: "c6eaWBiyx9M",
+      },
+      {
+        title: "Bryła Sztywna Zadania #1",
+        youtubeId: "sbiPdYHTkFE",
+      },
+      {
+        title: "Bryła Sztywna Zadania #2",
+        youtubeId: "4cTyG7IOJsE",
+      },
+    ],
     notes: [],
     exercises: [],
   },
@@ -132,7 +284,12 @@ export const topics: Topic[] = [
     group: "interactions",
     position: { x: 100, y: 450 },
     requires: ["praca-moc-energia"],
-    videos: [],
+    videos: [
+      {
+        title: "Grawitacja 1: Prawo Powszechnego Ciążenia",
+        youtubeId: "IyDWXR1slHY",
+      },
+    ],
     notes: [],
     exercises: [],
   },
