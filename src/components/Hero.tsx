@@ -93,7 +93,7 @@ export default function Hero() {
             Oglądaj na YouTube
           </a>
           <Link
-            href="/mapa"
+            href="/#mapa"
             className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full border border-border bg-surface px-6 font-medium transition hover:-translate-y-0.5 hover:border-accent/60"
           >
             Zobacz mapę fizyki <span aria-hidden="true">→</span>
