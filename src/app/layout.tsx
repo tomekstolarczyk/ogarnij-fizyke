@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Caveat,
+  Inter,
+  JetBrains_Mono,
+} from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -16,6 +21,18 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "latin-ext", "greek"],
 });
 
+// fonts 3: headings
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin", "latin-ext"],
+});
+
+// fonts 4: handwritten notes
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin", "latin-ext"],
+});
+
 export const metadata: Metadata = {
   title: "Ogarnij Fizykę",
   description: "Darmowy kurs fizyki do matury: filmy, notatki i zadania.",
@@ -27,7 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pl"
       // smooth scroll for in-page links (/#mapa); Next turns it off for page changes
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${jetbrainsMono.variable} scheme-dark motion-safe:scroll-smooth`}
+      className={`${inter.variable} ${jetbrainsMono.variable} ${bricolage.variable} ${caveat.variable} scheme-dark motion-safe:scroll-smooth`}
     >
       <body className="flex min-h-dvh flex-col bg-background text-foreground font-sans antialiased">
         <Header />

@@ -1,13 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a; /* page background */
-  --color-surface: #141414; /* cards, nodes */
-  --color-border: #262626;
-  --color-foreground: #ededed; /* main text */
-  --color-muted: #a1a1a1; /* secondary text */
-  --color-accent: #22c55e; /* green: links, buttons, highlights */
+  /* Navy dark palette, same as GitHub's dark mode */
+  --color-background: #0d1117; /* page background */
+  --color-surface: #161b22; /* cards, nodes */
+  --color-border: #30363d;
+  --color-foreground: #e6edf3; /* main text */
+  --color-muted: #9198a1; /* secondary text */
+  --color-accent: #3fb950; /* green: links, buttons, highlights */
   --color-ink: #1c1917; /* map: outlines and text on the pastel islands */
+
+  /* Marker colors from the YouTube thumbnails: stickers, icons, doodles */
+  --color-marker-blue: #58a6ff;
+  --color-marker-purple: #bc8cff;
+  --color-marker-coral: #ff7b72;
+  --color-marker-yellow: #e3b341;
 
   /* Gentle up-and-down floating of map tiles */
   --animate-float: float 6s ease-in-out infinite;
@@ -26,4 +33,16 @@
 @theme inline {
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-bricolage); /* headings */
+  --font-hand: var(--font-caveat); /* handwritten notes, like on the thumbnails */
+}
+
+/* Graph paper ("zeszyt w kratkę") behind the whole site */
+@layer base {
+  body {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
 }
