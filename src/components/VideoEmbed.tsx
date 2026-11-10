@@ -10,16 +10,24 @@ import type { Video } from "@/data/topics";
 // 13 players; now it loads 13 small images and at most the one you play.
 // "use client": the component remembers whether it was clicked (state),
 // so it has to run in the browser.
-export default function VideoEmbed({ video }: { video: Video }) {
-  const [playing, setPlaying] = useState(false);
+// autoPlay: skip the thumbnail and start right away; used when the user has
+// just picked this video from a list, so that click already meant "play".
+export default function VideoEmbed({
+  video,
+  autoPlay = false,
+}: {
+  video: Video;
+  autoPlay?: boolean;
+}) {
+  const [playing, setPlaying] = useState(autoPlay);
 
   return (
     <figure className="flex flex-col gap-2.5">
       <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-surface">
         {playing ? (
           // youtube-nocookie.com: YouTube's privacy mode, no tracking cookies
-          // for people who just visit the page. autoplay=1: the click
-          // on the thumbnail already was the "play".
+          // for people who just visit the page. autoplay=1: the user's click
+          // already was the "play".
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1`}
             title={video.title}

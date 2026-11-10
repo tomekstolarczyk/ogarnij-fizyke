@@ -1,14 +1,11 @@
 import Image from "next/image";
 import ComingSoon from "@/components/ComingSoon";
-import SectionHeading from "@/components/SectionHeading";
 import type { Topic } from "@/data/topics";
 
-// "Notatki" section: handwritten note pages to look through, plus the PDF
+// "Notatki i wzory" panel: handwritten note pages to look through, plus the PDF
 export default function TopicNotes({ topic }: { topic: Topic }) {
   return (
-    <section>
-      <SectionHeading id="notatki" label="notatki" title="Odręczne notatki" />
-
+    <>
       {topic.notes.length === 0 ? (
         <ComingSoon text="Notatki do tego działu skanuję. Będą do przejrzenia tutaj i do pobrania jako PDF." />
       ) : (
@@ -53,6 +50,6 @@ export default function TopicNotes({ topic }: { topic: Topic }) {
           ))}
         </div>
       )}
-    </section>
+    </>
   );
 }

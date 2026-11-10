@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CourseViewSwitch from "@/components/CourseViewSwitch";
 import { groups, topics } from "@/data/topics";
 import { isRecorded, moduleNumber, topicHref } from "@/lib/course";
 import { pluralize } from "@/lib/polish";
@@ -23,12 +24,9 @@ export default function CoursePage() {
         książki, filmy z teorią i zadaniami, odręczne notatki i lista zadań z
         arkuszy CKE. Idź po kolei, a niczego nie zgubisz.
       </p>
-      <Link
-        href="/mapa"
-        className="mt-5 inline-block font-semibold text-accent hover:underline"
-      >
-        Wolisz zobaczyć to jako mapę? →
-      </Link>
+      <div className="mt-7">
+        <CourseViewSwitch active="list" />
+      </div>
 
       <ol className="mt-12 flex flex-col gap-3">
         {topics.map((topic) => {

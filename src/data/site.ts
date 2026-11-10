@@ -31,20 +31,10 @@ export const menuItems: MenuItem[] = [
   },
   {
     label: "Cała fizyka",
-    description: "Kurs dział po dziale: książka, filmy, notatki, zadania",
+    description: "Kurs dział po dziale, jako spis treści albo mapa",
     href: "/dzialy",
   },
-  {
-    label: "Mapa fizyki",
-    description: "Wszystkie działy i co z czego wynika",
-    href: "/mapa",
-  },
   { label: "Notatki i wzory", description: "Notatki do pobrania jako PDF" },
-  {
-    label: "YouTube",
-    description: "Wszystkie filmy na kanale",
-    href: siteLinks.youtube,
-  },
   { label: "Kontakt", description: "Mail i Instagram" },
   { label: "Chcesz mnie wesprzeć?", description: "Kliknij tutaj ☕" },
 ];

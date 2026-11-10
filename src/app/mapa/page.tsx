@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PhysicsMap from "@/components/PhysicsMap";
 
 export const metadata: Metadata = {
-  title: "Mapa fizyki · Ogarnij Fizykę",
+  title: "Mapa · Cała fizyka · Ogarnij Fizykę",
   description:
     "Interaktywna mapa działów fizyki do matury: od czego zacząć i co z czego wynika.",
 };

@@ -3,13 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BookChapter from "@/components/BookChapter";
-import ComingSoon from "@/components/ComingSoon";
 import CourseNav from "@/components/CourseNav";
-import SectionHeading from "@/components/SectionHeading";
 import TopicChip from "@/components/TopicChip";
-import TopicExercises from "@/components/TopicExercises";
-import TopicNotes from "@/components/TopicNotes";
-import TopicVideos from "@/components/TopicVideos";
+import TopicCourse from "@/components/TopicCourse";
 import { groups, topics } from "@/data/topics";
 import { getChapter } from "@/lib/book";
 import { findTopic, getTopic, isRecorded, moduleNumber } from "@/lib/course";
@@ -36,15 +32,8 @@ export async function generateMetadata({
   };
 }
 
-// Jump links under the title, in the order of the sections below
-const sectionLinks = [
-  { href: "#ksiazka", label: "Książka" },
-  { href: "#filmy", label: "Filmy" },
-  { href: "#notatki", label: "Notatki" },
-  { href: "#zadania", label: "Zadania" },
-];
-
-// One module of the course: book chapter, videos, notes and exercises.
+// One module of the course: videos to click through, plus the book chapter,
+// notes and exercises, all switched inside TopicCourse.
 // Why the <Suspense>: when you click a link, Next wants to show the new page
 // instantly. It prefetches one shared "shell" for ALL topic pages, built
 // without knowing the slug. Everything that needs the slug goes inside
@@ -59,16 +48,15 @@ export default function TopicPage({ params }: PageProps<"/dzialy/[slug]">) {
   );
 }
 
-// Grey placeholder blocks roughly where the title and sections will be
+// Grey placeholder blocks roughly where the title, player and sidebar will be
 function TopicSkeleton() {
   return (
-    <div className="mx-auto w-full max-w-6xl animate-pulse px-4 py-12 sm:px-6">
-      <div className="h-4 w-28 rounded bg-surface" />
-      <div className="mt-10 h-14 w-3/4 max-w-xl rounded-xl bg-surface" />
-      <div className="mt-12 h-40 rounded-2xl bg-surface" />
-      <div className="mt-6 grid gap-6 sm:grid-cols-2">
+    <div className="mx-auto w-full max-w-7xl animate-pulse px-4 py-8 sm:px-6">
+      <div className="h-4 w-48 rounded bg-surface" />
+      <div className="mt-5 h-14 w-2/3 max-w-lg rounded-xl bg-surface" />
+      <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div className="aspect-video rounded-2xl bg-surface" />
-        <div className="aspect-video rounded-2xl bg-surface" />
+        <div className="hidden h-96 rounded-2xl bg-surface lg:block" />
       </div>
     </div>
   );
@@ -89,17 +77,16 @@ async function TopicContent({
   const chapter = getChapter(topic.slug); // null until the chapter is written
 
   return (
-    <article className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-      {/* Header */}
-      <header className="mb-14">
-        <Link
-          href="/dzialy"
-          className="font-mono text-sm text-muted transition-colors hover:text-accent"
-        >
-          ← cała fizyka
-        </Link>
-
-        <div className="mt-6 flex flex-wrap items-center gap-3 font-mono text-xs">
+    <article className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
+      {/* Header: compact, so the player is visible without scrolling */}
+      <header className="mb-8">
+        <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+          <Link
+            href="/dzialy"
+            className="text-sm text-muted transition-colors hover:text-accent"
+          >
+            ← cała fizyka
+          </Link>
           <span className="text-accent">dział {moduleNumber(topic)}</span>
           <span
             className="rounded-full border-2 border-ink px-2.5 py-0.5 tracking-wider text-ink uppercase"
@@ -114,50 +101,32 @@ async function TopicContent({
           )}
         </div>
 
-        <h1 className="mt-4 font-display text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.02] font-extrabold tracking-[-0.03em]">
-          {topic.name}
-        </h1>
+        <div className="mt-4 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
+          <h1 className="font-display text-[clamp(2.25rem,5.5vw,3.75rem)] leading-[1.02] font-extrabold tracking-[-0.03em]">
+            {topic.name}
+          </h1>
 
-        {prerequisites.length > 0 && (
-          <div className="mt-7">
-            <p className="mb-3 font-hand text-2xl font-bold text-marker-yellow">
-              najpierw ogarnij:
-            </p>
-            <div className="flex flex-wrap gap-3">
+          {prerequisites.length > 0 && (
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="font-hand text-2xl font-bold text-marker-yellow">
+                najpierw ogarnij:
+              </span>
               {prerequisites.map((required) => (
                 <TopicChip key={required.slug} topic={required} />
               ))}
             </div>
-          </div>
-        )}
-
-        <nav aria-label="Sekcje działu" className="mt-9 flex flex-wrap gap-2.5">
-          {sectionLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+          )}
+        </div>
       </header>
 
-      <div className="flex flex-col gap-20">
-        <section>
-          <SectionHeading id="ksiazka" label="książka" title="Rozdział w książce" />
-          {chapter ? (
-            <BookChapter markdown={chapter} />
-          ) : (
-            <ComingSoon text="Piszę ten rozdział: cała teoria działu opisana po ludzku, z intuicją i wzorami." />
-          )}
-        </section>
+      {/* The book is rendered here, on the server, and handed to the client
+          component as a finished piece of UI */}
+      <TopicCourse
+        topic={topic}
+        book={chapter ? <BookChapter markdown={chapter} /> : null}
+      />
 
-        <TopicVideos topic={topic} />
-        <TopicNotes topic={topic} />
-        <TopicExercises topic={topic} />
-
+      <div className="mt-16">
         <CourseNav topic={topic} />
       </div>
     </article>

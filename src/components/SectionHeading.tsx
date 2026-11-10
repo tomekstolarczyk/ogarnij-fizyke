@@ -1,5 +1,5 @@
 type Props = {
-  id: string; // anchor for in-page links, e.g. #filmy
+  id?: string; // optional anchor for in-page links, e.g. #filmy
   label: string; // small code-comment line above the title
   title: string;
 };

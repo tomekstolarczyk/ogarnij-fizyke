@@ -18,6 +18,7 @@ import TopicNode, { type TopicNodeType } from "@/components/TopicNode";
 import BranchNode, { type BranchNodeType } from "@/components/BranchNode";
 import FloatingEdge from "@/components/FloatingEdge";
 import MapIslands from "@/components/MapIslands";
+import CourseViewSwitch from "@/components/CourseViewSwitch";
 import {
   createSimulation,
   dragBody,
@@ -211,10 +212,15 @@ export default function PhysicsMap() {
         color="#2a2a2a"
       />
       <Panel position="top-left" className="pointer-events-none">
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Mapa <span className="text-accent">fizyki</span>
+        <h1 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
+          Cała <span className="text-accent">fizyka</span>
         </h1>
-        <p className="mt-1 font-mono text-xs text-muted">
+        {/* The panel ignores the mouse (so you can drag the map under it);
+            the switch turns it back on for itself */}
+        <div className="pointer-events-auto mt-2.5">
+          <CourseViewSwitch active="map" />
+        </div>
+        <p className="mt-2.5 font-mono text-xs text-muted">
           kliknij dział, żeby go otworzyć · złap kafelek i szarpnij · przybliżaj kółkiem albo palcami
         </p>
       </Panel>

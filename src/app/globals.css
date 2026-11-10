@@ -28,6 +28,24 @@
       translate: 0 -6px;
     }
   }
+
+  /* Quick side-to-side wobble of an emoji on hover, like a sticker being poked */
+  --animate-wiggle: wiggle 0.5s ease-in-out;
+  @keyframes wiggle {
+    0%,
+    100% {
+      rotate: 0deg;
+    }
+    25% {
+      rotate: -14deg;
+    }
+    50% {
+      rotate: 10deg;
+    }
+    75% {
+      rotate: -6deg;
+    }
+  }
 }
 
 /* inline: font variables are set by next/font on <html> */
