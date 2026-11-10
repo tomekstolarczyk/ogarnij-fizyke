@@ -20,10 +20,19 @@ export type MenuItem = {
 
 // Side menu entries, in display order (numbers 01, 02... come from the order)
 export const menuItems: MenuItem[] = [
-  { label: "O mnie", description: "Kim jestem i skąd ten kanał" },
+  {
+    label: "O mnie",
+    description: "Kim jestem i skąd ten kanał",
+    href: "/#o-mnie",
+  },
   {
     label: "Co muszę wiedzieć do matury 2027?",
     description: "Zasady, informatory CKE, karta wzorów",
+  },
+  {
+    label: "Cała fizyka",
+    description: "Kurs dział po dziale: książka, filmy, notatki, zadania",
+    href: "/dzialy",
   },
   {
     label: "Mapa fizyki",

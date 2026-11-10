@@ -15,19 +15,20 @@ type Shortcut = {
 
 const shortcuts: Shortcut[] = [
   {
+    title: "Cała fizyka",
+    text: "Kurs dział po dziale: rozdział książki, filmy, odręczne notatki i lista zadań z arkuszy CKE.",
+    cta: "Zacznij kurs →",
+    href: "/dzialy",
+    iconPath: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z M4 21V5 M8 7h7",
+    color: { text: "text-marker-purple", iconBg: "bg-marker-purple/15" },
+  },
+  {
     title: "Mapa fizyki",
     text: "Wszystkie działy na jednej mapie. Zobacz, od czego zacząć i co z czego wynika.",
     cta: "Otwórz mapę →",
     href: "/mapa",
     iconPath: "M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z M9 4v14 M15 6v14",
     color: { text: "text-accent", iconBg: "bg-accent/15" },
-  },
-  {
-    title: "Notatki i wzory",
-    text: "Odręczne notatki do przejrzenia online albo pobrania jako PDF. Do tego karta wzorów.",
-    cta: "Już niedługo",
-    iconPath: "M6 3h10l4 4v14H6z M16 3v4h4 M9 12h7 M9 16h5",
-    color: { text: "text-marker-purple", iconBg: "bg-marker-purple/15" },
   },
   {
     title: "YouTube",

@@ -25,7 +25,11 @@ const steps = [
 // "Cześć, tu Tomek" section: a short intro and the road from tutoring to this site
 export default function About() {
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-wrap items-start gap-x-16 gap-y-10 px-4 pt-14 pb-22 sm:px-6">
+    // scroll-mt-14: when /#o-mnie scrolls here, stop below the sticky header
+    <section
+      id="o-mnie"
+      className="mx-auto flex w-full max-w-6xl scroll-mt-14 flex-wrap items-start gap-x-16 gap-y-10 px-4 pt-14 pb-22 sm:px-6"
+    >
       <div className="min-w-0 flex-[1_1_26rem]">
         <p className="font-mono text-sm text-accent">{"// o mnie"}</p>
         <h2 className="mt-2.5 mb-5 font-display text-[clamp(1.875rem,4vw,2.75rem)] leading-tight font-bold tracking-[-0.02em]">

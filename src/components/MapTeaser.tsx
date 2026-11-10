@@ -1,15 +1,8 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import TopicChip from "@/components/TopicChip";
-import { groups, topics, type Topic } from "@/data/topics";
-
-// Looks a topic up by slug. Throws on a typo, so the build fails loudly
-// instead of a tile silently disappearing (like an assert in C)
-function getTopic(slug: string): Topic {
-  const topic = topics.find((t) => t.slug === slug);
-  if (!topic) throw new Error(`Unknown topic slug: ${slug}`);
-  return topic;
-}
+import { groups } from "@/data/topics";
+import { getTopic } from "@/lib/course";
 
 // Hand-picked preview: a real prerequisite chain on top, a few more topics below
 const chain = ["kinematyka", "dynamika", "praca-moc-energia", "bryla-sztywna"].map(getTopic);

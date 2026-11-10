@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   ReactFlow,
   Background,
@@ -81,6 +82,7 @@ const links = [
 ];
 
 export default function PhysicsMap() {
+  const router = useRouter(); // lets us change page from code, like clicking a <Link>
   const [nodes, setNodes] = useState(initialNodes);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
@@ -183,6 +185,12 @@ export default function PhysicsMap() {
       onNodesChange={onNodesChange}
       onNodeDrag={onNodeDrag}
       onNodeDragStop={onNodeDragStop}
+      // A click (not a drag) on a topic tile opens its page; branch dots do nothing
+      onNodeClick={(_event, node) => {
+        if (node.type === "topic") router.push(`/dzialy/${node.id}`);
+      }}
+      // A tap may move a few px on a phone and still count as a click
+      nodeClickDistance={5}
       onNodeMouseEnter={(_event, node) => setHoveredId(node.id)}
       onNodeMouseLeave={() => setHoveredId(null)}
       nodeOrigin={[0.5, 0.5]} // positions in topics.ts are tile centers
@@ -207,7 +215,7 @@ export default function PhysicsMap() {
           Mapa <span className="text-accent">fizyki</span>
         </h1>
         <p className="mt-1 font-mono text-xs text-muted">
-          złap kafelek i szarpnij · przybliżaj kółkiem albo palcami
+          kliknij dział, żeby go otworzyć · złap kafelek i szarpnij · przybliżaj kółkiem albo palcami
         </p>
       </Panel>
     </ReactFlow>
