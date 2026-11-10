@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BookChapter from "@/components/BookChapter";
 import ComingSoon from "@/components/ComingSoon";
 import CourseNav from "@/components/CourseNav";
 import SectionHeading from "@/components/SectionHeading";
@@ -10,6 +11,7 @@ import TopicExercises from "@/components/TopicExercises";
 import TopicNotes from "@/components/TopicNotes";
 import TopicVideos from "@/components/TopicVideos";
 import { groups, topics } from "@/data/topics";
+import { getChapter } from "@/lib/book";
 import { findTopic, getTopic, isRecorded, moduleNumber } from "@/lib/course";
 
 // [slug] in the folder name: this one file renders every topic page.
@@ -84,6 +86,7 @@ async function TopicContent({
 
   const group = groups[topic.group];
   const prerequisites = topic.requires.map(getTopic);
+  const chapter = getChapter(topic.slug); // null until the chapter is written
 
   return (
     <article className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
@@ -144,8 +147,11 @@ async function TopicContent({
       <div className="flex flex-col gap-20">
         <section>
           <SectionHeading id="ksiazka" label="książka" title="Rozdział w książce" />
-          {/* TODO: the book chapter goes here (decide on MDX + math rendering first) */}
-          <ComingSoon text="Piszę ten rozdział: cała teoria działu opisana po ludzku, z intuicją i wzorami." />
+          {chapter ? (
+            <BookChapter markdown={chapter} />
+          ) : (
+            <ComingSoon text="Piszę ten rozdział: cała teoria działu opisana po ludzku, z intuicją i wzorami." />
+          )}
         </section>
 
         <TopicVideos topic={topic} />
