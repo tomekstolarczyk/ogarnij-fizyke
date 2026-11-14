@@ -335,6 +335,11 @@ export const topics: Topic[] = [
         youtubeId: "IyDWXR1slHY",
         kind: "theory",
       },
+      {
+        title: "Grawitacja 2: pole centralne vs jednorodne",
+        youtubeId: "aelCvsW6Uss",
+        kind: "theory",
+      },
     ],
     notes: [],
     exercises: [],
