@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ComingSoon from "@/components/ComingSoon";
+import MaturaCountdown from "@/components/MaturaCountdown";
 import SectionHeading from "@/components/SectionHeading";
 import { ckeLinks, matura } from "@/data/matura";
 
@@ -35,9 +36,12 @@ export default function MaturaPage() {
         co możesz mieć ze sobą i jak się do niej przygotować, żeby w maju nic
         cię nie zaskoczyło.
       </p>
-      <p className="mt-7 font-hand text-3xl font-bold text-marker-yellow">
-        {fullDate}, godz. {matura.time}
-      </p>
+      <div className="mt-8 flex flex-col gap-1">
+        <MaturaCountdown />
+        <p className="font-hand text-3xl font-bold text-marker-yellow">
+          {fullDate}, godz. {matura.time}
+        </p>
+      </div>
 
       <section className="mt-16">
         <SectionHeading label="egzamin" title="Jak wygląda matura z fizyki" />
