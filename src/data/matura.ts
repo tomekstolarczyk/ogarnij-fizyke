@@ -2,6 +2,8 @@
 // from CKE's schedule ("Komunikat o harmonogramie egzaminów"), published
 // each August for the next May.
 // Source for 2027: CKE announcement of 20 August 2026.
+// The long text of the page is in src/content/pages/matura-2027.md and
+// repeats some of these facts in prose (for Google): update both.
 
 export const matura = {
   year: 2027,
@@ -12,6 +14,7 @@ export const matura = {
   day: "19 maja",
   time: "9:00",
   durationMinutes: 180,
+  maxPoints: 60, // from CKE's physics informator (od roku 2024/2025)
   results: "9 lipca", // results day, same year
 };
 
