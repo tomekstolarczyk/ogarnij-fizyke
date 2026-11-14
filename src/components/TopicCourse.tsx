@@ -56,7 +56,7 @@ export default function TopicCourse({ topic, book }: Props) {
     showPanel();
   };
 
-  // Puts the video in the panel as a thumbnail; the user starts it themselves
+  // Puts the video in the player; the user starts it themselves (no autoplay)
   const playVideo = (next: Video) => {
     setVideo(next);
     setMode("films");
@@ -97,7 +97,7 @@ export default function TopicCourse({ topic, book }: Props) {
           {mode === "films" &&
             (video ? (
               <div className="flex flex-col gap-4">
-                {/* key: a new video = a new player, starting from the thumbnail state */}
+                {/* key: a new video = a fresh player, not the old one reused */}
                 <VideoEmbed key={video.youtubeId} video={video} />
                 {lessonIndex >= 0 && (
                   <div className="flex flex-wrap items-center gap-3">
