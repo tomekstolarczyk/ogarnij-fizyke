@@ -24,16 +24,11 @@ const fallbackThumbnail = (id: string) => `https://i.ytimg.com/vi/${id}/hqdefaul
 // YouTube player, which weighs hundreds of KB of JavaScript.
 // "use client": the component remembers whether it was clicked (state),
 // so it has to run in the browser.
-// autoPlay: skip the thumbnail and start right away; used when the user has
-// just picked this video from a list, so that click already meant "play".
-export default function VideoEmbed({
-  video,
-  autoPlay = false,
-}: {
-  video: Video;
-  autoPlay?: boolean;
-}) {
-  const [playing, setPlaying] = useState(autoPlay);
+// Always starts as the thumbnail, even when picked from the lesson list:
+// starting the player without a click inside it gets blocked by browsers
+// (Safari), leaving YouTube's paused player instead of our thumbnail.
+export default function VideoEmbed({ video }: { video: Video }) {
+  const [playing, setPlaying] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
 
   return (

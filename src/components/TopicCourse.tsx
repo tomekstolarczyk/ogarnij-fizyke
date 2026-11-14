@@ -36,9 +36,6 @@ export default function TopicCourse({ topic, book }: Props) {
   // makes React draw the component again with the new value
   const [mode, setMode] = useState<TopicMode>("films");
   const [video, setVideo] = useState<Video | undefined>(lessons[0] ?? full[0]);
-  // false until the user picks a video: the first one shows its thumbnail,
-  // every one picked later starts playing right away
-  const [autoPlay, setAutoPlay] = useState(false);
 
   // useRef: a handle to a real DOM element, here the main panel
   const panelRef = useRef<HTMLDivElement>(null);
@@ -59,10 +56,10 @@ export default function TopicCourse({ topic, book }: Props) {
     showPanel();
   };
 
+  // Puts the video in the panel as a thumbnail; the user starts it themselves
   const playVideo = (next: Video) => {
     setVideo(next);
     setMode("films");
-    setAutoPlay(true);
     showPanel();
   };
 
@@ -101,7 +98,7 @@ export default function TopicCourse({ topic, book }: Props) {
             (video ? (
               <div className="flex flex-col gap-4">
                 {/* key: a new video = a new player, starting from the thumbnail state */}
-                <VideoEmbed key={video.youtubeId} video={video} autoPlay={autoPlay} />
+                <VideoEmbed key={video.youtubeId} video={video} />
                 {lessonIndex >= 0 && (
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="font-mono text-xs text-muted">
