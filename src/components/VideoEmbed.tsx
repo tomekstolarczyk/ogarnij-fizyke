@@ -41,10 +41,12 @@ export default function VideoEmbed({
       {/* bg-black: no light flash while the player loads */}
       <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-black">
         {playing ? (
-          // youtube-nocookie.com: YouTube's privacy mode, no tracking cookies
-          // for people who just visit the page
+          // Regular youtube.com player, not the youtube-nocookie.com privacy
+          // mode: viewers stay logged in and get personalized ads, which pay
+          // the channel more. Thanks to the facade, YouTube (and its cookies)
+          // loads only after someone clicks play.
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?${playerParams}`}
+            src={`https://www.youtube.com/embed/${video.youtubeId}?${playerParams}`}
             title={video.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
