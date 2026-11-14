@@ -30,6 +30,7 @@ export const menuItems: MenuItem[] = [
   {
     label: "Co muszę wiedzieć do matury 2027?",
     description: "Zasady, informatory CKE, karta wzorów",
+    href: "/matura-2027",
   },
   {
     label: "Cała fizyka",
