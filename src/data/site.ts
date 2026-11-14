@@ -1,6 +1,8 @@
 // External links used across the site (header, footer)
 export const siteLinks = {
   youtube: "https://www.youtube.com/@tomekstolarczykk",
+  // Same channel, but YouTube opens the "Subscribe?" confirmation right away
+  subscribe: "https://www.youtube.com/@tomekstolarczykk?sub_confirmation=1",
   instagram: "https://www.instagram.com/tomekstolarczykk",
   github: "https://github.com/tomekstolarczyk/ogarnij-fizyke",
 };

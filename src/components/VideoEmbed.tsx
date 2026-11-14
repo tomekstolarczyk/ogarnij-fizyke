@@ -1,3 +1,4 @@
+import SubscribeButton from "@/components/SubscribeButton";
 import type { Video } from "@/data/topics";
 
 // Settings of the YouTube player, sent in its URL (?hl=pl&rel=0...)
@@ -29,8 +30,11 @@ export default function VideoEmbed({ video }: { video: Video }) {
           className="absolute inset-0 size-full"
         />
       </div>
-      <figcaption className="text-[15px] leading-snug font-medium">
-        {video.title}
+      {/* Title on the left, subscribe on the right, like under a YouTube
+          video. flex-wrap: on a narrow phone the button drops below the title */}
+      <figcaption className="flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
+        <span className="text-[15px] leading-snug font-medium">{video.title}</span>
+        <SubscribeButton />
       </figcaption>
     </figure>
   );
